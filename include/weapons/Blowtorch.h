@@ -50,7 +50,8 @@ private:
       }
       else if (curCell.value.compare(EARTH) == 0)
       {
-        applyGravity(game, curCell.xPos, curCell.yPos);
+        printf("Shot hit EARTH at (%d, %d)\n", curCell.xPos, curCell.yPos);
+        applyGravity(game, curCell.xPos, curCell.yPos + 1);
       }
       else
       {
