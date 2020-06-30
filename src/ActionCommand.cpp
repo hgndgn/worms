@@ -38,7 +38,7 @@ bool ActionCommand::execute()
     t.use(game.selectedWorm[0], col, row);
   }
   // use airstrike
-  else if (col != -1 && row == -1 && !direction.empty())
+  else if (col != -1 && row == -1 && direction.empty())
   {
     if (game.selectedWeapon->name.compare("airstrike") != 0)
     {

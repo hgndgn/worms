@@ -49,7 +49,14 @@ public:
       }
       else if (curCell.value.compare(EARTH) == 0)
       {
+        printf("Shot hit EARTH at (%d, %d)\n", curCell.xPos, curCell.yPos);
         applyGravity(game, curCell.xPos, curCell.yPos + 1);
+        return;
+      }
+      else if (curCell.value.compare(CASE) == 0)
+      {
+        printf("Shot hit CASE at (%d, %d)\n", curCell.xPos, curCell.yPos);
+        game.map.field[curCell.yPos][curCell.xPos].value = AIR;
         return;
       }
       else
