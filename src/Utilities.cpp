@@ -394,7 +394,7 @@ void openCase(Game &game, const int &caseXPos, const int &caseYPos)
     {
       w->ammunition += 1;
       printf("%s (%d) picked up 1 of '%s'\n", game.selectedWorm->name.c_str(), game.selectedWorm->id, w->name.c_str());
-      game.map.field[caseYPos][caseXPos] = AIR;
+      game.map.field[caseYPos][caseXPos].value = AIR;
       return;
     }
   }
