@@ -1,0 +1,4 @@
+[general]
+PROMT=>
+MAP=./assets/map
+WORM_NAMES=./assets/worm_names
