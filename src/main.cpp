@@ -75,6 +75,10 @@ void handleCommand(Game &game, const vector<string> args)
             return;
         }
 
+        if (validCommands[rootCommand] == NULL) {
+            printf("[ERROR] Invalid command!\n");
+            return;
+        }
         validCommands[rootCommand]->execute();
     }
 
@@ -121,9 +125,8 @@ void handleCommand(Game &game, const vector<string> args)
 
         if (rootCommand.compare("choose") == 0)
         {
-            // actionCmd = make_unique<ActionCommand>(game, cmdParam);
             ChooseCommand c(game, cmdParam);
-            success = c.execute();
+            c.execute();
         }
     }
 
@@ -138,6 +141,7 @@ void handleCommand(Game &game, const vector<string> args)
                 const int col = stoi(args[1]);
                 const int row = stoi(args[2]);
 
+                // use teleporter
                 actionCmd = make_unique<ActionCommand>(game, col, row);
                 success = actionCmd->execute();
                 if (success)

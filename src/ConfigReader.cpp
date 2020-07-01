@@ -105,6 +105,18 @@ Map ConfigReader::readMapConfig(string mapPath)
   return map;
 }
 
+bool checkIfWormExistsAtColumn(Game &game, const int &column)
+{
+  for (int i = game.map.numRows - 1; i > 0; i--)
+  {
+    if (game.map.field[i][column].isWorm())
+    {
+      return true;
+    }
+  }
+  return false;
+}
+
 void initPlayerWorms(Game &game, Player &player, se::Random &r)
 {
   vector<Worm> worms = {};
@@ -120,9 +132,8 @@ void initPlayerWorms(Game &game, Player &player, se::Random &r)
       xPos = r.getRandomInt(game.groundStart, game.groundEnd);
       yPos = r.getRandomInt(0, game.map.numRows - 1);
       MapElement &me = game.map.field[yPos][xPos];
-      MapElement &bottomEl = game.map.field[yPos + 1][xPos];
 
-      if (me.value.compare(AIR) == 0 && !bottomEl.isWorm())
+      if (me.value.compare(AIR) == 0 && !checkIfWormExistsAtColumn(game, xPos))
       {
         validPositionFound = true;
       }
