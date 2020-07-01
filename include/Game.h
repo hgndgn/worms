@@ -28,6 +28,14 @@ public:
   bool gameInitialized = false;
 
   Game();
+  ~Game()
+  {
+    delete selectedWorm, selectedWeapon;
+    for (auto &p : allPlayers)
+    {
+      delete p;
+    }
+  }
 
   void printMap()
   {
