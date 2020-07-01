@@ -17,8 +17,6 @@ void applyGravityToPreviousColumn(Game &game, const string &direction, const int
 
 bool MoveCommand::execute()
 {
-  // const int xPos = worm.position.x;
-
   for (int i = 0; i < steps; i++)
   {
     int nextX = worm.position.x + fd.xChange;

@@ -64,9 +64,7 @@ void applyGravity(Game &game, const int &xPos, const int &yPos)
       }
       else
       {
-        // int tmpBottom = cur.isCase() ? bottom - 1 : bottom;
-        int tmpBottom = bottom;
-        for (int j = i; j < tmpBottom; j++)
+        for (int j = i; j < bottom; j++)
         {
           cur.yPos++;
         }
@@ -253,7 +251,6 @@ Worm *getWormAtPosition(Game &game, const int &x, const int &y)
     }
   }
 
-  // printf("No worm found at position x: %d y: %d\n", x, y);
   return NULL;
 }
 
